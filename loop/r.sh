@@ -19,5 +19,5 @@ gcc -c -m64 -Wall -fno-pie -no-pie -o main.o main.c
 echo "Link the three 'o' files main.o loop.o isfloat.o"
 gcc -m64 -Wall -fno-pie -no-pie -z noexecstack -lm -o go.out main.o loop.o isfloat.o  
 
-echo "Next ""Loop!"" will run"
+echo "Next ""Loops!"" will run"
 ./go.out
