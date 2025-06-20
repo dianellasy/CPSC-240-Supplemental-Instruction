@@ -103,6 +103,7 @@ prompt:
 
 
 ; Check if the number of miles from the user's house to CSUF is a float
+; Download Professor Holliday's isfloat.asm from his website
 
 
 
