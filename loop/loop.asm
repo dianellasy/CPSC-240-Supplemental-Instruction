@@ -88,27 +88,21 @@ tryAgain:
 ; Output the invalid data detected message if the user inputted invalid data
 
 
-
 prompt:
 ; Ask for the number of miles from the user's house to CSUF
-
 
 
 ; Obtain the number of miles from the user's house to CSUF
 
 
-
 ; Calculate the number of miles from the user's house to CSUF
-
 
 
 ; Check if the number of miles from the user's house to CSUF is a float
 ; Download Professor Holliday's isfloat.asm from his website
 
 
-
 ; If the number of miles from the user's house to CSUF is not a float, go back to tryAgain and input a floating-point number for miles
-
 
 
 ; Convert the string of number of miles from the user's house to CSUF to a floating-point number
@@ -118,12 +112,12 @@ prompt:
 
 
 
-; ~~~~~ Return the total distance traveled to the driver ~~~~~
+; Return the total distance traveled to the driver 
 
 
 
-; ~~~~~ Pop the General Purpose Registers (GPRs) so the pointer can be restored to the top of the stack and the values can be restored before this function was called  ~~~~~
-; ~~~~~ After all the pops are done, the stack will be how it was before the function executed 
+; Pop the General Purpose Registers (GPRs) so the pointer can be restored to the top of the stack and the values can be restored before this function was called 
+; After all the pops are done, the stack will be how it was before the function executed 
 popf
 pop r15
 pop r14
