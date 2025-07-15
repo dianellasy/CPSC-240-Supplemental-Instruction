@@ -22,7 +22,7 @@
 ; The "" will teach.
 
 ; Project Information:
-; Files: main.c, hello.asm, r.sh
+; Files: 
 ; Developing Computer: 
 ; Status:
 
