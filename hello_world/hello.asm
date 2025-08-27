@@ -30,10 +30,19 @@
 ; Linux:
 ; Linux:
 
+global hello_world
+
+extern stdin
+extern fgets
+extern printf
+
 
 ; segment .data is where initialized data is declared
 segment .data
 
+prompt_name db "Please enter your name: ", 0
+
+output_hello db "Hello World! My name is %s", 0
 
 
 
@@ -41,7 +50,7 @@ segment .data
 ; segment .bss is where uninitialized data is declared
 segment .bss
 
-
+name resb 50
 
 
 
@@ -70,6 +79,21 @@ push r13
 push r14
 push r15
 pushf
+
+mov rax, 0
+mov rdi, prompt_name
+call printf
+
+mov rax, 0
+mov rdi, name
+mov rsi, 50
+mov rdx, [stdin]
+call fgets
+
+mov rax, 0
+mov rdi, output_hello
+mov rsi, name
+call printf
 
 
 ; Pop the General Purpose Registers (GPRs) so the pointer can be restored to the top of the stack and the values can be restored before this function was called

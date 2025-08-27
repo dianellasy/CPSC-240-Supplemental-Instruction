@@ -36,6 +36,14 @@
 
 #include <stdio.h>
 
+extern void hello_world();
+
 int main(int argc, char* argv[]) {
+    printf("Welcome to the Hello World Program by Dianella Sy\n\n");
+
+    hello_world();
+
+    printf("\nGoodbye!\n");
+    
     return 0;
 }
