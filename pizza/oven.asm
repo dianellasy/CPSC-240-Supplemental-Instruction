@@ -48,7 +48,7 @@ segment .bss
 ; segment .text is the code
 segment .text
 
-; The header or label 'hello_world:' defines the initial program entry point
+; The header or label 'make_pizza:' defines the initial program entry point
 make_pizza: 
 
 ; Save/back up the base pointer
