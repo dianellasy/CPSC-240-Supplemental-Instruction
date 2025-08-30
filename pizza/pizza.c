@@ -34,14 +34,38 @@
 // ./go.out
 
 #include <stdio.h>
+#include <math.h>
+
+extern double make_pizza();
+extern void ingredients(int count1, const char* ingredient_one,
+                        int count2, const char* ingredient_two,
+                        int count3, const char* ingredient_three,
+                        double price, double tax);
 
 int main() {
+    printf("\nLet's make some pizza!\n\n");
+
     // Call C Function ingredients
+    // ingredients(5, "Tomato", 7, "Cheese", 3, "Pepperoni", 10.0, 0.1);
 
     // Call Assembly Function make_pizza
+    make_pizza();
+
+    double cosine = make_pizza();
+    printf("cos(60) = %1.1lf", cosine);
+
+    printf("\nPizza is ready!\n");
+
     return 0;
 }
 
 // A function named ingredients which prints a list of ingredients and its count
-void ingredients() {
+void ingredients(int count1, const char* ingredient_one,
+                 int count2, const char* ingredient_two,
+                 int count3, const char* ingredient_three,
+                 double price, double tax)
+{
+    double total = price + price * tax;
+    printf("Ingredients:\n%dx %s\n%dx %s\n%dx %s\nPrice: %lf\nTax: %lf\nTotal: %lf\n",
+           count1, ingredient_one, count2, ingredient_two, count3, ingredient_three, price, tax, total);
 }

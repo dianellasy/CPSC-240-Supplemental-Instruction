@@ -30,9 +30,20 @@
 ; Linux:
 ; Linux:
 
+global make_pizza
+extern ingredients
+extern cos
+
 
 ; segment .data is where initialized data is declared
 segment .data
+
+ingredient_one db "Tomato", 0
+ingredient_two db "Cheese", 0
+ingredient_three db "Pepperoni", 0
+price dq 10.0
+tax dq 0.1
+cosine dq 60.0
 
 
 
@@ -72,7 +83,23 @@ push r15
 pushf
 
 ; Implement ingredients function call here
+mov rax, 2
+mov rdi, 5
+mov rsi, ingredient_one
+mov rdx, 7
+mov rcx, ingredient_two
+mov r8, 3
+mov r9, ingredient_three
+movsd xmm0, [price]
+movsd xmm1, [tax]
+call ingredients
 
+mov rax, 1
+movsd xmm0, [cosine]
+call cos 
+
+movsd xmm1, xmm0
+movsd xmm0, xmm1
 
 
 ; Pop the General Purpose Registers (GPRs) so the pointer can be restored to the top of the stack and the values can be restored before this function was called

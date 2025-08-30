@@ -16,5 +16,5 @@ gcc -c -m64 -Wall -fno-pie -no-pie -o pizza.o pizza.c
 echo "Link the two 'o' files pizza.o oven.o"
 gcc -m64 -Wall -fno-pie -no-pie -z noexecstack -lm -o go.out pizza.o oven.o  
 
-echo "Next """" will run"
+echo "Next ""Pizza Program"" will run"
 ./go.out
