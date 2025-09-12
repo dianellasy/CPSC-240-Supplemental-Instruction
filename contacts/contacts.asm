@@ -72,23 +72,8 @@ segment .text
 ; The header or label 'contacts:' defines the initial program entry point
 contacts:
 
-; Back up the General Purpose Registers (GPRs)
-push rbp
-mov rbp, rsp
-push rbx
-push rcx
-push rdx
-push rdi
-push rsi
-push r8
-push r9
-push r10
-push r11
-push r12
-push r13
-push r14
-push r15
-pushf
+; Macro backs up the GPRs
+
 
 
 ; Output program instructions
@@ -124,22 +109,6 @@ mov  rsi, output_program_will_return_execution_to_the_main_function
 call printf
 
 
-; Pop the General Purpose Registers (GPRs) so the pointer can be restored to the top of the stack and the values can be restored before this function was called  
-; After all the pops are done, the stack will be how it was before the function executed
-popf
-pop r15
-pop r14
-pop r13
-pop r12
-pop r11
-pop r10
-pop r9
-pop r8
-pop rsi
-pop rdi
-pop rdx
-pop rcx
-pop rbx
-pop rbp
+; Restore original values to general registers
 
 ret
