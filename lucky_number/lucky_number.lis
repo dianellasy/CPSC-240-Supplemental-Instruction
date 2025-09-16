@@ -1,0 +1,185 @@
+     1                                  ; Program Name: "". This program demonstrates.  Copyright (C) 2025  Dianella Sy
+     2                                  
+     3                                  ; This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License  *
+     4                                  ; version 3 as published by the Free Software Foundation.                                                                    *
+     5                                  ; This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied         *
+     6                                  ; warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.      *
+     7                                  ; A copy of the GNU General Public License v3 is available here: <https://www.gnu.org/licenses/>.
+     8                                  
+     9                                  ; Author Information:
+    10                                  ; Name:
+    11                                  ; CWID:
+    12                                  ; Section: CPSC 240-#
+    13                                  ; Email: @csu.fullerton.edu
+    14                                  
+    15                                  ; Program Information:
+    16                                  ; Name:
+    17                                  ; Languages:
+    18                                  ; Start Date:
+    19                                  ; Completion Date:
+    20                                  
+    21                                  ; Program's Purpose:
+    22                                  ; The "" will teach.
+    23                                  
+    24                                  ; Project Information:
+    25                                  ; Files: 
+    26                                  ; Developing Computer: 
+    27                                  ; Status:
+    28                                  
+    29                                  ; Translator Information:
+    30                                  ; Linux:
+    31                                  
+    32                                  extern printf
+    33                                  extern fgets
+    34                                  extern stdin
+    35                                  extern strlen
+    36                                  extern isfloat
+    37                                  extern atof
+    38                                  
+    39                                  global lucky_number
+    40                                  maximum_number_of_characters_for_input equ 32
+    41                                  
+    42                                  
+    43                                  ; segment .data is where initalized data is declared
+    44                                  
+    45                                  segment .data
+    46                                  
+    47 00000000 0A456E746572206120-     prompt_floating_point_number db 10, "Enter a floating-point number: ", 0
+    47 00000009 666C6F6174696E672D-
+    47 00000012 706F696E74206E756D-
+    47 0000001B 6265723A2000       
+    48                                  
+    49 00000021 596F7520646964206E-     prompt_invalid_data_detected_message db "You did not input a floating-point number 😡 Try again.", 10, 0
+    49 0000002A 6F7420696E70757420-
+    49 00000033 6120666C6F6174696E-
+    49 0000003C 672D706F696E74206E-
+    49 00000045 756D62657220F09F98-
+    49 0000004E A12054727920616761-
+    49 00000057 696E2E0A00         
+    50                                  
+    51 0000005C 257300                  string_format db "%s", 0
+    52                                  
+    53                                  
+    54                                  
+    55                                  
+    56                                  
+    57                                  ; segment .bss is where uninitialized data is declared 
+    58                                  
+    59                                  segment .bss
+    60                                  
+    61 00000000 <res 20h>               floating_point_number resb maximum_number_of_characters_for_input
+    62                                  
+    63                                  
+    64                                  
+    65                                  
+    66                                  
+    67                                  ; segment .text is the code 
+    68                                  
+    69                                  segment .text
+    70                                  
+    71                                  ; The header or label 'lucky_number:' defines the initial program entry point
+    72                                  lucky_number:
+    73                                  
+    74                                  ; Back up the General Purpose Registers (GPRs)
+    75 00000000 55                      push rbp
+    76 00000001 4889E5                  mov rbp, rsp
+    77 00000004 53                      push rbx
+    78 00000005 51                      push rcx
+    79 00000006 52                      push rdx
+    80 00000007 57                      push rdi
+    81 00000008 56                      push rsi
+    82 00000009 4150                    push r8
+    83 0000000B 4151                    push r9
+    84 0000000D 4152                    push r10
+    85 0000000F 4153                    push r11
+    86 00000011 4154                    push r12
+    87 00000013 4155                    push r13
+    88 00000015 4156                    push r14
+    89 00000017 4157                    push r15
+    90 00000019 9C                      pushf
+    91                                  
+    92 0000001A EB1E                    jmp prompt
+    93                                  
+    94                                  tryAgain:
+    95                                  ; Output the invalid data detected message if the user inputted invalid data
+    96 0000001C B800000000              mov rax, 0
+    97 00000021 48BF-                   mov rdi, string_format
+    97 00000023 [5C00000000000000] 
+    98 0000002B 48BE-                   mov rsi, prompt_invalid_data_detected_message
+    98 0000002D [2100000000000000] 
+    99 00000035 E8(00000000)            call printf
+   100                                  
+   101                                  
+   102                                  prompt:
+   103                                  ; Ask for a floating-point number
+   104 0000003A B800000000              mov rax, 0
+   105 0000003F 48BF-                   mov rdi, string_format
+   105 00000041 [5C00000000000000] 
+   106 00000049 48BE-                   mov rsi, prompt_floating_point_number
+   106 0000004B [0000000000000000] 
+   107 00000053 E8(00000000)            call printf
+   108                                  
+   109                                  
+   110                                  ; Obtain the floating-point number
+   111 00000058 B800000000              mov rax, 0
+   112 0000005D 48BF-                   mov rdi, floating_point_number
+   112 0000005F [0000000000000000] 
+   113 00000067 BE20000000              mov rsi, maximum_number_of_characters_for_input
+   114 0000006C 488B1425[00000000]      mov rdx, [stdin]
+   115 00000074 E8(00000000)            call fgets
+   116                                  
+   117                                  
+   118                                  ; Calculate the floating-point number
+   119 00000079 B800000000              mov rax, 0
+   120 0000007E 48BF-                   mov rdi, floating_point_number
+   120 00000080 [0000000000000000] 
+   121 00000088 E8(00000000)            call strlen 
+   122                                  
+   123 0000008D 4989C5                  mov r13, rax
+   124 00000090 41C685[FFFFFFFF]00      mov [floating_point_number + r13 - 1], byte 0
+   125                                  
+   126                                  
+   127                                  ; Check if the floating-point number the user inputted is a float
+   128 00000098 B800000000              mov rax, 0
+   129 0000009D 48BF-                   mov rdi, floating_point_number
+   129 0000009F [0000000000000000] 
+   130 000000A7 E8(00000000)            call isfloat
+   131                                  
+   132                                  
+   133                                  ; If the floating-point number the user inputted is not a float, go back to tryAgain (the header/label) and input a floating-point number
+   134 000000AC 4883F800                cmp rax, 0
+   135 000000B0 0F8466FFFFFF            je tryAgain
+   136                                  
+   137                                  
+   138                                  
+   139                                  ; Convert the floating-point number the user inputted to a floating-point number
+   140 000000B6 B800000000              mov rax, 0
+   141 000000BB 48BF-                   mov rdi, floating_point_number
+   141 000000BD [0000000000000000] 
+   142 000000C5 E8(00000000)            call atof
+   143 000000CA F2440F10C0              movsd xmm8, xmm0
+   144                                  
+   145                                  
+   146                                  ; Return the floating-point number to the driver
+   147 000000CF F2410F10C0              movsd xmm0, xmm8
+   148                                  
+   149                                  
+   150                                  ; Pop the General Purpose Registers (GPRs) so the pointer can be restored to the top of the stack and the values can be restored before this function was called
+   151                                  ; After all the pops are done, the stack will be how it was before the function executed 
+   152 000000D4 9D                      popf
+   153 000000D5 415F                    pop r15
+   154 000000D7 415E                    pop r14
+   155 000000D9 415D                    pop r13
+   156 000000DB 415C                    pop r12
+   157 000000DD 415B                    pop r11
+   158 000000DF 415A                    pop r10
+   159 000000E1 4159                    pop r9
+   160 000000E3 4158                    pop r8
+   161 000000E5 5E                      pop rsi
+   162 000000E6 5F                      pop rdi
+   163 000000E7 5A                      pop rdx
+   164 000000E8 59                      pop rcx
+   165 000000E9 5B                      pop rbx
+   166 000000EA 5D                      pop rbp
+   167                                  
+   168 000000EB C3                      ret
