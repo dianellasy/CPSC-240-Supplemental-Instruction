@@ -1,19 +1,27 @@
-; This is an include file for the program Area of a Triangle
-
+; This is an include file for the program Midterm Programming Exam Review
 
 ; Macro computes the area of a right triangle using float numbers
+%macro area_of_a_triangle 3
+   ; %1 = length of side 1 as qword float
+   ; %2 = length of side 2 as qword float
+   ; %3 = computed area
 
-; End of macro receiving float values
+%endmacro
 
 
+; Macro computes the third angle of a right trangle
+%macro third_angle 3
+   ; %1 = 180.0
+   ; %2 = first angle of the triangle
+   ; %3 = second angle of the triangle
+
+%endmacro
 
 
-
-; Other macros
+; Macro backs up all registers except GPRs to an array specified in parameter %1
 %macro backup_components 1
-; This macro backs up all registers except GPRs to an array specified in parameter %1
-   mov rax,7
-   mov rdx,0
+   mov rax, 7
+   mov rdx, 0
    xsave [%1]
 %endmacro
 
@@ -41,13 +49,13 @@
 
 ; Macro restore_components
 %macro restore_components 1
-   mov rax,7
-   mov rdx,0
+   mov rax, 7
+   mov rdx, 0
    xrstor [%1]
 %endmacro
 
 
-; Macro delete activation record 
+; Macro that deletes activation record 
 %macro delete_activation_record 0
 popf
 pop r15
