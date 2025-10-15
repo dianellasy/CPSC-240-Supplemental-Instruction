@@ -5,7 +5,12 @@
    ; %1 = length of side 1 as qword float
    ; %2 = length of side 2 as qword float
    ; %3 = computed area
-
+  movsd xmm13, %1
+  mulsd xmm13, %2       ; xmm13 = product of two sides
+  mov   rbx, 2            
+  cvtsi2sd xmm14, rbx
+  divsd xmm13, xmm14    ; Divide product of two sides by 2 
+  movsd %3, xmm13
 %endmacro
 
 
@@ -14,7 +19,10 @@
    ; %1 = 180.0
    ; %2 = first angle of the triangle
    ; %3 = second angle of the triangle
-
+   movsd xmm15, %1
+   subsd xmm15, %2
+   subsd xmm15, %3
+   movsd %1, xmm15
 %endmacro
 
 
