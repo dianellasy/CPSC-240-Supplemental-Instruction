@@ -22,7 +22,7 @@
 ; The "" will teach.
 
 ; Project Information:
-; Files: main.c, hello.asm, r.sh
+; Files: 
 ; Developing Computer: 
 ; Status:
 
@@ -31,7 +31,7 @@
 ; Linux:
 
 extern rdrand
-global rdrands
+global random_number
 
 
 ; segment .data is where initialized data is declared
@@ -54,8 +54,8 @@ segment .bss
 
 segment .text
 
-; The header or label 'rdrands:' defines the initial program entry point
-rdrands:
+; The header or label 'random_number:' defines the initial program entry point
+random_number:
 
 ; Back up the General Purpose Registers (GPRs)
 push rbp

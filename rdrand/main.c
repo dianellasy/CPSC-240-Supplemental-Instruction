@@ -35,17 +35,17 @@
 
 #include <stdio.h>
 
-extern int rdrands();
+extern int random_number();
 
 int main(int argc, char* argv[]) {
 
-    printf("Welcome to Dianella's SI Session! 🤗\n");
+    printf("\nWelcome to Dianella's SI Session! 🤗\n");
     
-    int return_rdrand = rdrands();
+    int return_rdrand = random_number();
 
-    printf("\nYour random number is %d\n", return_rdrand);
+    printf("Your random number is %d\n", return_rdrand);
     
-    printf("\nA zero will be returned to the operating system.\n");
+    printf("A zero will be returned to the operating system.\n");
 
     printf("Thank you for attending my SI session! I hope this helped 🩷\n");
 
