@@ -31,6 +31,7 @@
 ; Linux:
 
 extern rdrand
+extern printf
 global random_number
 
 
@@ -79,7 +80,12 @@ pushf
 ; Generate a random number from the computer (CPU) and put it in r15
 
 
-mov rax, r15    
+
+; Print the random number in IEEE754 and Scientific Decimal format
+
+
+; Return the random number from the computer to main.c
+
 
 
 ; Pop the General Purpose Registers (GPRs) so the pointer can be restored to the top of the stack and the values can be restored before this function was called
