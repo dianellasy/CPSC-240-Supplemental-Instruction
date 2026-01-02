@@ -1,9 +1,9 @@
 ; Program Name: "". This program demonstrates.  Copyright (C) 2025  Dianella Sy
 
-; This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License  *
-; version 3 as published by the Free Software Foundation.                                                                    *
-; This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied         *
-; warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.      *
+; This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License  
+; version 3 as published by the Free Software Foundation.                                                                    
+; This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied         
+; warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.      
 ; A copy of the GNU General Public License v3 is available here: <https://www.gnu.org/licenses/>.
 
 ; Author Information:
@@ -89,62 +89,29 @@ push r14
 push r15
 pushf
 
-jmp prompt
 
-tryAgain:
 ; Output the invalid data detected message if the user inputted invalid data
-mov rax, 0
-mov rdi, string_format
-mov rsi, prompt_invalid_data_detected_message
-call printf
 
 
-prompt:
 ; Ask for a floating-point number
-mov rax, 0
-mov rdi, string_format
-mov rsi, prompt_floating_point_number
-call printf
 
 
 ; Obtain the floating-point number
-mov rax, 0
-mov rdi, floating_point_number
-mov rsi, maximum_number_of_characters_for_input
-mov rdx, [stdin]
-call fgets
 
 
 ; Calculate the floating-point number
-mov rax, 0
-mov rdi, floating_point_number
-call strlen 
-
-mov r13, rax
-mov [floating_point_number + r13 - 1], byte 0
 
 
 ; Check if the floating-point number the user inputted is a float
-mov rax, 0
-mov rdi, floating_point_number
-call isfloat
 
 
 ; If the floating-point number the user inputted is not a float, go back to tryAgain (the header/label) and input a floating-point number
-cmp rax, 0
-je tryAgain
-
 
 
 ; Convert the floating-point number the user inputted to a floating-point number
-mov rax, 0
-mov rdi, floating_point_number
-call atof
-movsd xmm8, xmm0
 
 
 ; Return the floating-point number to the driver
-movsd xmm0, xmm8
 
 
 ; Pop the General Purpose Registers (GPRs) so the pointer can be restored to the top of the stack and the values can be restored before this function was called
