@@ -115,8 +115,8 @@ jmp     loop
 
 
 exit:
-; ~~~~~ Pop the General Purpose Registers (GPRs) so the pointer can be restored to the top of the stack and the values can be restored before this function was called  ~~~~~
-; ~~~~~ After all the pops are done, the stack will be how it was before the function executed 
+; Pop the General Purpose Registers (GPRs) so the pointer can be restored to the top of the stack and the values can be restored before this function was called  
+; After all the pops are done, the stack will be how it was before the function executed 
 popf          
 pop     r15
 pop     r14
