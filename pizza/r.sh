@@ -14,7 +14,7 @@ echo "Compile the C file pizza.c"
 gcc -c -m64 -Wall -fno-pie -no-pie -o pizza.o pizza.c
 
 echo "Link the two 'o' files pizza.o oven.o"
-gcc -m64 -Wall -fno-pie -no-pie -z noexecstack -lm -o go.out pizza.o oven.o  
+gcc -m64 -Wall -fno-pie -no-pie -z noexecstack -std=c2x -o go.out pizza.o oven.o -lm
 
-echo "Next ""Pizza Program"" will run"
+echo "Next """" will run"
 ./go.out
