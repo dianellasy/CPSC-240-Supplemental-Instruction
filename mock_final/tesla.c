@@ -1,7 +1,7 @@
-// Author Name: Dianella Sy
-// Author Email: dianellabsy@csu.fullerton.edu
-// Course and Section: CPSC 240-19 Final Program
-// Date: December 16, 2024
+// Author Name: 
+// Author Email: 
+// Course and Section: 
+// Date: 
 
 #include <stdio.h>
 
