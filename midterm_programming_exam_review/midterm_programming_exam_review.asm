@@ -1,4 +1,4 @@
-; Program Name: "". This program demonstrates.  Copyright (C) 2026  Dianella Sy
+; Program Name: "". This program demonstrates.  Copyright (C) 2025  Dianella Sy
 
 ; This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License  
 ; version 3 as published by the Free Software Foundation.                                                                    
@@ -41,12 +41,14 @@ global midterm_programming_exam_review
 segment .data
 
 
-; New line and float
+; New line, float, and string format
 new_line db 10, 0
 double_float db "%lf", 0
+string db "%s", 0
 
 
 integer db "The integer in r12 is %ld", 10, 0
+happy_birthday_chris_message db "Happy Birthday, Chris 🥳", 0
 
 
 
@@ -78,12 +80,27 @@ create_activation_record
 
 
 ; Set 4 equal to rbx, which equals 00000000.....0000000100 (single 1 in position 3)
-
+ 
 
 ; Flip the third bit from the right, so r12 changes to 00000000.....000001   
 
 
 ; Print "The integer in r12 is 1"
+
+
+; Print a new line
+
+
+; Move 0 to r15 and 44 to r14
+
+
+; Create a header/label named compare and compare the loop counter with 44
+
+
+; Create a header/label named print_message, increment the loop counter, and print the happy birthday message + new line
+
+
+; Jump to compare
 
 
 ; Restore original values to general registers
