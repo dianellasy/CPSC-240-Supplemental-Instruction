@@ -37,14 +37,14 @@
 segment .data
 
 ; Define standard constants
-LF           equ 10 ; line feed
-NULL         equ 0  ; end of string
-EXIT_SUCCESS equ 0  ; success code
-STDIN        equ 0  ; standard input
-STDOUT       equ 1  ; standard output
-SYS_read     equ 0  ; read
-SYS_write    equ 1  ; write
-SYS_exit     equ 60 ; terminate
+line_feed           equ 10 ; line feed
+null         equ 0  ; end of string
+exit_success equ 0  ; success code
+stdin        equ 0  ; standard input
+stdout       equ 1  ; standard output
+sys_read     equ 0  ; read
+sys_write    equ 1  ; write
+sys_exit     equ 60 ; terminate
 
 
 
