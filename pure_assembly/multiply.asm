@@ -1,4 +1,4 @@
-; Program Name: "". This program demonstrates.  Copyright (C) 2026  Dianella Sy
+; Program Name: "". This program demonstrates.  Copyright (C) 2025  Dianella Sy
 
 ; This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License  
 ; version 3 as published by the Free Software Foundation.                                                                    
@@ -30,16 +30,23 @@
 ; Linux:
 
 
-; Declaration Section
+global multiply
 
 
-; segment .data is where initalized data is declared
 segment .data
 
 
-; segment .bss is where uninitialized data is declared
-segment .bss   
+segment .bss
 
 
-; segment .text is the code 
 segment .text
+
+
+multiply:
+movsd xmm15, xmm0
+movsd xmm14, xmm1
+
+mulsd xmm15, xmm14
+
+movsd xmm0, xmm15
+ret
