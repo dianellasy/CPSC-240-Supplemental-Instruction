@@ -33,17 +33,9 @@
 // Execution:
 // ./go.out
 
-
 #include <stdio.h>
+#include <math.h>
 
-// The prototype of this function
-extern long arrayaverage(long [], long);
+int main() {
 
-// Declare global data limited to exactly those required by the inline assembly program
-long global_array;
-long global_size;
-long global_average;
-
-extern long arrayaverage(long the_array[], long number_of_elements)
-{
 }

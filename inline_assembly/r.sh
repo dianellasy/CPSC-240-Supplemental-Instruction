@@ -4,18 +4,11 @@
 # Program Name: 
 # Purpose:
 
-rm *.o, *.lis, *.out
+echo "Compile the C file inline_assembly.c"
+gcc -c -m64 -Wall -o inline_assembly.o inline_assembly.c    
 
-echo "Compile the C file arrayprocess.c"
-gcc -c -m64 -Wall -o arrayprocess.o arrayprocess.c      
+echo "Create go.out"
+gcc -m64 -Wall -o go.out inline_assembly.o
 
-echo "Compile the C file arraymain.c"
-gcc -c -m64 -Wall -o arraymain.o arraymain.c 
-
-echo "Link the 'O' files: arrayprocess.o and arraymain.o"
-gcc -m64 -fno-pie -no-pie -o inlinedemo.out arraymain.o arrayprocess.o  
-
-echo "Run the program Inline X86 Example"
-./inlinedemo.out
-
-echo "The script file has terminated."
+echo "Run the program Inline Assembly"
+./go.out
