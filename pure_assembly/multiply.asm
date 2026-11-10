@@ -31,7 +31,7 @@
 
 
 ; Declaration Section
-
+global multiply
 
 ; segment .data is where initalized data is declared
 segment .data
@@ -43,3 +43,12 @@ segment .bss
 
 ; segment .text is the code 
 segment .text
+
+multiply:
+movsd xmm15, xmm0
+movsd xmm14, xmm1
+
+mulsd xmm15, xmm14
+
+movsd xmm0, xmm15
+ret
